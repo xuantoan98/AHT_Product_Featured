@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="catalog_product_featured" class="AHT\ProductFeatured\Block\Catalog\Product\ProductFeatured" is_email_compatible="false" placeholder_image="Magento_Widget::placeholder.gif">
+        <label translate="true">Catalog Product Featured</label>
+        <description translate="true">List of Products have attribute is is_featured</description>
+
+        <parameters>
+            <parameter name="title" xsi:type="text" required="true" visible="true">
+                <label translate="true">Title (frontend)</label>
+            </parameter>
+
+            <parameter name="product_per_page" xsi:type="text" required="false" visible="true">
+                <label translate="true">Number of The Product to show</label>
+            </parameter>
+
+            <parameter name="enable_slider" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Enable Slider</label>
+            </parameter>
+
+            <parameter name="product_per_slide" xsi:type="text" required="false" visible="true">
+                <label translate="true">Number of The Product to slide</label>
+                <depends>
+                    <parameter name="enable_slider" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+
+            <parameter name="template" xsi:type="select" required="true" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="product/slider/list.phtml" selected="true">
+                        <label translate="true">Product list slider</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

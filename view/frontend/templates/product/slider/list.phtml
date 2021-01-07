@@ -1,0 +1,57 @@
+<?php
+    $imageBlock =  $block->getLayout()->createBlock('Magento\Catalog\Block\Product\ListProduct');
+
+    $numberProductToShow = $block->getData('product_per_page');
+    $numberProductToShow = intval($numberProductToShow);
+
+    $numberProductToSlide = $block->getData('product_per_slide');
+    $numberProductToSlide = intval($numberProductToSlide);
+
+    $isEnable = $block->getData('enable_slider');
+    $isEnable = intval($isEnable);
+
+    $productCollection = $block->getProductFeaturedCollection()
+                                ->setPageSize($numberProductToShow);
+
+    $_helper = $this->helper('Magento\Catalog\Helper\Output');
+
+?>
+<div class="block block-product-slider slider-list" numberToSlide="<?php echo $numberProductToSlide; ?>">
+    <div class="block-title">
+        <h2><?php echo $block->getTitle() ?></h2>
+    </div>
+    <div class="block-content">
+        <?php if (count($productCollection)): ?>
+            <div class="<?php echo $isEnable == 1 ? 'product-slider' : 'product-content'; ?>">
+                <?php foreach ($productCollection as $product): ?>
+                    <?php $productImage = $imageBlock->getImage($product, 'category_page_grid'); ?>
+                    <div class="product">
+                        <div class="product-image">
+                            <a href="<?php echo $product->getProductUrl() ?>">
+                                <?php echo $productImage->toHtml(); ?>
+                            </a>
+                        </div>
+                        <strong class="product-name">
+                            <a href="<?php echo $product->getProductUrl() ?>">
+                                <?php echo $_helper->productAttribute($product, $product->getName(), 'name'); ?>
+                            </a>
+                        </strong>
+                        <?php echo $block->getProductPrice($product) ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+
+<script>
+    require([
+        "jquery",
+        "slick"
+    ], function($){
+            "use strict";
+
+            console.log("Kieu Xuan");
+        }
+    )
+</script>
