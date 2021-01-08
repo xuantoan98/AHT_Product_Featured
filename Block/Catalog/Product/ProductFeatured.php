@@ -24,8 +24,7 @@ class ProductFeatured extends \Magento\Framework\View\Element\Template
         $collection = $this->collectionFactory->create();
         $collection
             ->addAttributeToSelect('*')
-            ->addAttributeToFilter('is_featured', '1')
-            ->load();
+            ->addAttributeToFilter('is_featured', '1');
 
         return $collection;
     }

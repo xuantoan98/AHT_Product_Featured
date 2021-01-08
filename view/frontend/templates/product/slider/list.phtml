@@ -13,6 +13,7 @@
     $productCollection = $block->getProductFeaturedCollection()
                                 ->setPageSize($numberProductToShow);
 
+
     $_helper = $this->helper('Magento\Catalog\Helper\Output');
 
 ?>
@@ -44,14 +45,49 @@
     </div>
 </div>
 
-<script>
-    require([
-        "jquery",
-        "slick"
-    ], function($){
-            "use strict";
+<script type="text/javascript">
+    require(['jquery', 'slick'], function($){
+        $(function(){
+            var numberToSlide = $('.block-product-slider').attr('numberToSlide');
+            numberToSlide = parseInt(numberToSlide);
 
-            console.log("Kieu Xuan");
-        }
-    )
+            $('.product-slider').slick({
+                dots: false,
+                infinite: false,
+                speed: 300,
+                slidesToShow: numberToSlide,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 1024,settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 4,
+                            infinite: true
+                        }
+                    },
+                    {
+                        breakpoint: 770,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 400,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    });
 </script>

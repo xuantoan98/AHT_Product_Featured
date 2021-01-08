@@ -1,7 +1,10 @@
 var config = {
-    map: {
-        '': {
-            slick: 'AHT_ProductFeatured/js/slick'
+    paths: {
+        slick: 'AHT_ProductFeatured/js/slick'
+    },
+    shim: {
+        slick: {
+            deps: ['jquery']
         }
     }
-}
+};
