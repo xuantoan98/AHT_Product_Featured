@@ -18,5 +18,5 @@
 ```
 - Choose any product -> Edit -> at Attribute Set choose Attribute Set created, scroll down -> you will see 1 attribute format Yes/No -> Choose Yes
 
-- Run command: php bin/magento 
+- Run command: php bin/magento c:
 ```
