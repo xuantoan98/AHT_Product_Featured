@@ -4,7 +4,7 @@
 
 ### Step 1: Clone repository
 ```git
-- Clone porject : https://github.com/xuantoan98/AHT_Product_Featured.git
+- Clone projetc : https://github.com/xuantoan98/AHT_Product_Featured.git
 ```
 
 ### Step 2: Create Attribute Set and Attribute
