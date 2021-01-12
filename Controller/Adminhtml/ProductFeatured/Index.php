@@ -4,6 +4,10 @@ namespace AHT\ProductFeatured\Controller\Adminhtml\ProductFeatured;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
+/**
+ * Class Index
+ * @package AHT\ProductFeatured\Controller\Adminhtml\ProductFeatured
+ */
 class Index extends \Magento\Backend\App\Action
 {
     const ADMIN_RESOURCE = 'AHT_ProductFeatured::ProductFeatured';
